@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Registration</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h2 class = "logo">logo</h2>
+        <nav class="navigation">
+            <button class="btnLogin-popup">Sign Up</button>
+        </nav>
+    </header>
+
+    <div class="wrapper" style="height: 70%;">
+        <span class="icon-close"><ion-icon name="close"></ion-icon></span>
+        <div class="form-box login" id="successForm">
+            <h2>Sign Up</h2>
+            <form action="#">
+                <div class="input-box">
+                    <span class="icon">
+                        <ion-icon name="person"></ion-icon>
+                        <i id="nameErrorIcon"></i>
+                    </span>
+                    <input type="text" required id="nameInput" maxlength="30">
+                    <label>Username<ion-icon name=""></ion-icon></label>
+                    <center><small style="color: red; font-size: 11px;" id="nameError"></small></center>
+                </div>
+                <div class="input-box">
+                    <span class="icon">
+                        <ion-icon name="mail"></ion-icon>
+                        <i id="emailErrorIcon"></i>
+                    </span>
+                    <input type="text" required id="emailInput">
+                    <label>Email<ion-icon name=""></ion-icon></label>
+                    <center><small style="color: red; font-size: 11px;" id="emailError"></small></center>
+                </div>
+                <div class="input-box">
+                    <span class="icon">
+                        <i id="dateErrorIcon"></i>
+                    </span>
+                    <input type="Date" required id="dateInput">
+                    <center><small style="color: red; font-size: 11px;" id="dateError"></small></center>
+                </div>
+                <div class="input-box">
+                    <span class="icon">
+                        <ion-icon name="call"></ion-icon>
+                        <i id="mobileErrorIcon"></i>
+                    </span>
+                    <input type="text" id="mobileNumber" required oninput="validateMobileNumber(this.value)">
+                    <label>Mobile Number</label>
+                    <center><small id="mobileError" style="color: red; font-size: 11px;"></small></center>
+                </div>
+                <div class="input-box">
+                    <span class="icon">
+                        <ion-icon name="lock-closed"></ion-icon>
+                        <i id="passwordErrorIcon"></i>
+                    </span>
+                    <input type="password" id="password" required oninput="validatePassword()">
+                    <label>Password</label>
+                    <center><small id="passwordError" style="color: red; font-size: 11px;"></small></center>
+                        <!-- <center><small style="color: red; font-size: 11px;" id="lowercaseError"></small></center>
+                        <center><small style="color: red; font-size: 11px;" id="uppercaseError"></small></center>
+                        <center><small style="color: red; font-size: 11px;" id="specialCharError"></small></center>
+                        <center><small style="color: red; font-size: 11px;" id="lengthError"></small></center> -->
+                </div>                
+                <div class="input-box">
+                    <span class="icon">
+                        <ion-icon name="lock-closed"></ion-icon>
+                        <i id="confirmPasswordErrorIcon"></i>
+                    </span>
+                    <input type="password" required id="confirmPassword" oninput="validateConfirmPassword()">
+                    <label>Confirm Password<ion-icon name=""></ion-icon></label>
+                    <center><small id="confirmPasswordError" style="color: red; font-size: 11px;"></small></center>
+                </div>
+                <div  id="submitButton"><button type="submit" class="btn" onclick="validateForm()">Register</button></div>
+            </form>
+        </div>
+    
+    </div>
+
+    <!-- <div class="wrapper" style="height: 70%;">
+        <span class="icon-close"><ion-icon name="close"></ion-icon></span>
+        <div class="form-box login">
+            <h2>Sign Up</h2>
+        </div>
+
+    </div> -->
+
+    <script src="style.js"></script>
+    <script src="script.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></script> -->
+    
+</body>
+</html>
+

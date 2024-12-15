@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Click Display</title>
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <style>
+        /* Style for the image container */
+#image-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Style for individual images */
+#image-container img {
+    width: 200px;
+    height: auto;
+    margin: 10px;
+    cursor: pointer;
+}
+
+/* Style for the details container */
+#details-container {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Style for the details */
+#details {
+    text-align: center;
+}
+
+/* Style for the close button */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+    </style>
+</head>
+<body>
+    <div id="image-container">
+        <img src="https://images.unsplash.com/photo-1679581858563-3c808d23f0fc?crop=entropy&cs=srgb&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2ODE0OTMyMjM&ixlib=rb-4.0.3&q=85" alt="Image 1">
+        <img src="https://images.unsplash.com/photo-1679581858563-3c808d23f0fc?crop=entropy&cs=srgb&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2ODE0OTMyMjM&ixlib=rb-4.0.3&q=85" alt="Image 2">
+        <img src="https://images.unsplash.com/photo-1679581858563-3c808d23f0fc?crop=entropy&cs=srgb&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2ODE0OTMyMjM&ixlib=rb-4.0.3&q=85" alt="Image 3">
+    </div>
+    <div id="details-container">
+        <div id="details">
+            <!-- Image details will be displayed here -->
+        </div>
+    </div>
+
+    <script>
+        // Get all images
+const images = document.querySelectorAll('#image-container img');
+
+// Get details container
+const detailsContainer = document.getElementById('details-container');
+
+// Add click event listener to each image
+images.forEach(image => {
+    image.addEventListener('click', () => {
+        // Get image alt (title) and display it in the details container
+        const imageTitle = image.alt;
+        document.getElementById('details').innerHTML = `
+            <h2>${imageTitle}</h2>
+            <p>Some details about ${imageTitle}...</p>
+            <button class="close-btn" onclick="closeDetails()">Close</button>
+        `;
+
+        // Show details container
+        detailsContainer.style.display = 'block';
+    });
+});
+
+// Function to close details container
+function closeDetails() {
+    detailsContainer.style.display = 'none';
+}
+
+    </script>
+
+    <!-- <script src="script.js"></script> -->
+</body>
+</html>
